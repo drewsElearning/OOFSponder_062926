@@ -34,7 +34,7 @@ If you're going to be out of the office unexpectedly, or maybe you're just takin
 
 **Extended OOF**
 
-If you are going on extended OOF (maybe you're finally taking that 2 week vacation you've been planning), select the _Alternate OOF_ radio button, set the alternate OOF messages accordingly, and then pick the day BEFORE you want your normal OOF schedule to resume. This functionality can also be used when you leave early since OOFSponder treats the time you select _Enable Extended OOF_ as the start time for the alternate message. If you're only leaving early for the current day, simply use the Alternate Messages process above. The day you selected for your normal schedule to resume, Extended OOF automatically reverts back to your Primary OOF Messages.
+If you are going on extended OOF (maybe you're finally taking that 2 week vacation you've been planning), select the _Alternate OOF_ radio button, set the alternate OOF messages accordingly, and then pick the day BEFORE you want your normal OOF schedule to resume. This functionality can also be used when you leave early since OOFSponder treats the time you click _Enable Extended OOF_ as the start time for the alternate message. If you're only leaving early for the current day, simply use the Alternate Messages process above. On the day after the one you selected on the calender, Extended OOF automatically reverts back to your Primary OOF Messages and configured schedule.
 
 ![Image of secondary UI Selecting Date](/ReadMeImages/ExtendedOOF-1.png)
 
