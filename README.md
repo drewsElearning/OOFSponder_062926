@@ -1,6 +1,6 @@
 ## ReadMe
 
-![Image of primary UI](https://github.com/EvanBasalik/OOFSponder/blob/main/ReadMeImages/Primary.png)
+![Image of primary UI](https://github.com/EvanBasalik/OOFSponder/blob/main/ReadMeImages/PrimaryOOF.png)
 **Getting Started**
 
 👉 Try the new CDN-based, signed version here: [OOFSponder CDN Install](https://aka.ms/OOFSponderInstall) 👈
@@ -24,8 +24,19 @@ Click the Save Settings button to store all your settings locally. OOFSponder wi
 
 If you close the window OOFSponder will continue running in the background. You can double click the icon in your system tray to open it back up.
 
-If you are going on extended OOF, select the _Secondary OOF_ radio button, set the secondary OOF messages accordingly, and then pick the day when you want your normal OOF schedule to resume. This functionality can also be used when you leave early since OOFSponder treats the time you select _Enable Extended OOF_ as the start time for the secondary message.
-![Image of secondary UI](https://github.com/EvanBasalik/OOFSponder/blob/main/ReadMeImages/Secondary.png)
+**Alternate Messages**
+
+If you're going to be out of the office unexpectedly, or maybe you're just taking an extra day (or it's a Company Holiday), you can select the _Alerternate OOF_ radio button and set appropriate alternate messages. Update your working hours and/or Off Work days for the change, and click Save Settings. You're all set.
+![Image of secondary UI](https://github.com/EvanBasalik/OOFSponder/blob/main/ReadMeImages/AlternateOOF.png)
+
+
+**Extended OOF**
+
+If you are going on extended OOF (maybe you're finally taking that 2 week vacation you've been planning), select the _Alternate OOF_ radio button, set the alternate OOF messages accordingly, and then pick the day BEFORE you want your normal OOF schedule to resume. This functionality can also be used when you leave early since OOFSponder treats the time you select _Enable Extended OOF_ as the start time for the alternate message. If you're only leaving early for the day, simply use the Alternate Messages process above.
+![Image of secondary UI Selecting Date](https://github.com/EvanBasalik/OOFSponder/blob/main/ReadMeImages/ExtendedOOF-1.png)
+
+
+![Image of secondary UI Enabling Extended OOF](https://github.com/EvanBasalik/OOFSponder/blob/main/ReadMeImages/ExtendedOOF-2.png)
 
 **Audience Scope**
 
