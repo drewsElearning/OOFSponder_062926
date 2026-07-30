@@ -29,7 +29,6 @@ If you close the window OOFSponder will continue running in the background. You 
 If you're going to be out of the office unexpectedly, or maybe you're just taking an extra day (or it's a Company Holiday), you can select the _Alerternate OOF_ radio button and set appropriate alternate messages. Update your working hours and/or Off Work days for the change, and click Save Settings. You're all set.
 ![Image of secondary UI](https://github.com/EvanBasalik/OOFSponder/blob/main/ReadMeImages/AlternateOOF.png)
 
-
 **Extended OOF**
 
 If you are going on extended OOF (maybe you're finally taking that 2 week vacation you've been planning), select the _Alternate OOF_ radio button, set the alternate OOF messages accordingly, and then pick the day BEFORE you want your normal OOF schedule to resume. This functionality can also be used when you leave early since OOFSponder treats the time you select _Enable Extended OOF_ as the start time for the alternate message. If you're only leaving early for the day, simply use the Alternate Messages process above.
