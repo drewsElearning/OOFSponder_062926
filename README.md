@@ -51,5 +51,7 @@ The _Audience Scope_ dropdown controls who receives your external OOF message. T
 
 _Hint: If you do not want to send an external OOF message at all, set the Audience Scope to **None**._
 
+![Image of the Audience Scop Drop Down](/ReadMeImages/AudienceScopeDropDown.png)
+
 **Legacy ClickOnce Installer**
 If you still want the legacy ClickOnce installer, use [this old link](https://evanbasalik.github.io/OOFSponder/production/OOFScheduling.application).
