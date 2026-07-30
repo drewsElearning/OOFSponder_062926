@@ -1,5 +1,3 @@
-[[_TOC_]]
-
 # OOFSponder ReadMe
 
 ![Image of primary UI](/ReadMeImages/PrimaryOOF.png)
