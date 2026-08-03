@@ -228,7 +228,7 @@ namespace OOFSponderCore.Migration
 
         /// <summary>
         /// Determines if this user is eligible for migration based on a rotating daily cohort.
-        /// Returns <c>true</c> for ~10% of users on weekdays (Mon-Fri). The cohort is computed
+        /// Returns <c>true</c> for 100% of users on weekdays (Mon-Fri). The cohort is computed
         /// deterministically from UTC date + username + machine name + appDataDir using SHA-256,
         /// so each user gets a stable in/out decision for the full day and the eligible set
         /// rotates day to day.
@@ -261,8 +261,8 @@ namespace OOFSponderCore.Migration
                     // Use first 4 bytes to create an integer, then mod 100 to get 0-99 range
                     var hashValue = Math.Abs(BitConverter.ToInt32(hash, 0)) % 100;
 
-                    // Include users in the 0-9 bucket (10% of users)
-                    return hashValue < 10;
+                    // Include all users (100% rollout)
+                    return hashValue < 100;
                 }
             }
             catch (Exception ex)
