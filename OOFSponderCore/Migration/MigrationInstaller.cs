@@ -81,6 +81,12 @@ namespace OOFSponderCore.Migration
                     return false;
                 }
 
+                if (!IsInGradualRolloutCohort(appDataDir))
+                {
+                    MigrationLog("Migration: user not in today's rollout cohort; skipping migration.");
+                    return false;
+                }
+
                 var coreRing = ResolveRingFromAppref();
                 var coreCdnBase = MigrationRingResolver.GetCdnBaseUrlForRing(coreRing);
                 MigrationLog("Migration: resolved core ring '" + coreRing + "' -> " + coreCdnBase);
@@ -218,6 +224,52 @@ namespace OOFSponderCore.Migration
                 // fall through to default
             }
             return "production";
+        }
+
+        /// <summary>
+        /// Determines if this user is eligible for migration based on a rotating daily cohort.
+        /// Returns <c>true</c> for 100% of users on weekdays (Mon-Fri). The cohort is computed
+        /// deterministically from UTC date + username + machine name + appDataDir using SHA-256,
+        /// so each user gets a stable in/out decision for the full day and the eligible set
+        /// rotates day to day.
+        /// </summary>
+        private static bool IsInGradualRolloutCohort(string appDataDir)
+        {
+            try
+            {
+#if DEBUG
+                return true; // Always allow migration in debug builds for testing
+#endif
+
+                // Only migrate on weekdays (Monday-Friday)
+                var today = DateTime.UtcNow;
+                if (today.DayOfWeek == DayOfWeek.Saturday || today.DayOfWeek == DayOfWeek.Sunday)
+                {
+                    return false;
+                }
+
+                // Build deterministic cohort identifier: UTC date + username + machine + appDataDir
+                var dateString = today.ToString("yyyy-MM-dd");
+                var username = Environment.UserName ?? string.Empty;
+                var machineName = Environment.MachineName ?? string.Empty;
+                var cohortInput = dateString + "|" + username + "|" + machineName + "|" + appDataDir;
+
+                // Hash to get a deterministic value
+                using (var sha = SHA256.Create())
+                {
+                    var hash = sha.ComputeHash(System.Text.Encoding.UTF8.GetBytes(cohortInput));
+                    // Use first 4 bytes to create an integer, then mod 100 to get 0-99 range
+                    var hashValue = Math.Abs(BitConverter.ToInt32(hash, 0)) % 100;
+
+                    // Include all users (100% rollout)
+                    return hashValue < 100;
+                }
+            }
+            catch (Exception ex)
+            {
+                MigrationLog("Migration: error computing rollout cohort: " + ex.Message);
+                return false;
+            }
         }
 
         // ---- download / verify --------------------------------------------------------
